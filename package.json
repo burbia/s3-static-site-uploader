@@ -1,17 +1,15 @@
 {
-  "name": "s3-upload",
-  "version": "0.2.0",
-  "description": "Allows you to upload static files to S3 buckets.",
+  "name": "s3-upload-dist",
+  "version": "1.0.0",
+  "description": "Allows you to upload angular apps to S3 buckets.",
   "main": "main.js",
   "bin": {
-    "s3-upload": "./bin/s3-upload.js"
+    "s3-upload-dist": "./bin/s3-upload-dist.js"
   },
-  "scripts": {
-    "test": "mocha"
-  },
+  "scripts": {},
   "repository": {
     "type": "git",
-    "url": "git://github.com/jamestalmage/s3-static-site-uploader.git"
+    "url": "git://github.com/burbia/s3-static-site-uploader.git"
   },
   "keywords": [
     "Amazon",
@@ -20,10 +18,10 @@
     "Upload",
     "Static"
   ],
-  "author": "James Talmage",
+  "author": "Burbia",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/jamestalmage/s3-static-site-uploader/issues"
+    "url": "https://github.com/burbia/s3-static-site-uploader/issues"
   },
   "dependencies": {
     "aws-sdk": "^2.1.17",

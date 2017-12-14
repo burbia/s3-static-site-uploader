@@ -1,6 +1,7 @@
-Deploy static sites to Amazon S3 using Node!
---------------------------------------------
-
+Deploy Angular app to AWS S3 buckets using node.
+(original version: https://github.com/jamestalmage/s3-static-site-uploader/)
+-----------------------------------------------
+* ONLY upload files inside the dist folder
 * Uploads are fast (only changed files are sent).
 * Old files (or files that no longer match the set of patterns) are deleted. Easily remove accidental uploads by simply changing the configuration and redeploying.
 * Configuration uses Ant Glob syntax. Easy to understand and update.  
@@ -10,15 +11,15 @@ module.exports = {
 	credentials:"aws-credentials.json",
 	bucketName:"example.com",
 	patterns:[
-		"scripts/*.js",
-		"stylesheets/default.css",
-		"images/**/*.jpg",
-		"index.html"
+		"dist/scripts/*.js",
+		"dist/stylesheets/default.css",
+		"dist/images/**/*.jpg",
+		"dist/index.html"
 	]
 }
 ```
 
-Install via npm: `npm install -g s3-upload`
+Install via npm: `npm install -g s3-upload-dist`
 
 S3 Bucket Setup
 ===============
@@ -128,15 +129,16 @@ module.exports = {
 	credentials:"aws-credentials.json",
 	bucketName:"example.com",
 	patterns:[
-		"scripts/*.js",
-		"stylesheets/default.css",
-		"images/**/*.jpg",
-		"index.html"
+		"dist/scripts/*.js",
+		"dist/stylesheets/default.css",
+		"dist/images/**/*.jpg",
+		"dist/index.html"
 	]
 }
 ```
 
 Upload!
 =======
+First build you Angular app (ng build).
 
-Simply call `s3-upload` from the same directory as your config file, and the upload will happen.
+Simply call `s3-upload-dist` from the same directory as your config file, and the upload will happen.
