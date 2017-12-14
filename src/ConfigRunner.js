@@ -42,17 +42,17 @@ return function ConfigRunner(){
             actions.forEach(function(obj){
                 switch(obj.action){
                     case 'delete':
-
-                        deletes.push(obj.path);
+						var awsPath = obj.path.substring(5);
+                        deletes.push(awsPath);
                         break;
                     case 'upload':
                         fileUtils.getContents(obj.path).then(function(contents){
-							
-                            console.log('uploading: ' + obj.path + ' to ' + obj.path.substring(5));
-                            s3Wrapper.putObject(config.bucketName,obj.path,contents).then(function(){
-                                console.log('done uploading: ' + obj.path);
+							var awsPath = obj.path.substring(5);
+                            console.log('uploading: ' + obj.path + ' to ' + awsPath);
+                            s3Wrapper.putObject(config.bucketName,awsPath,contents).then(function(){
+                                console.log('done uploading: ' + awsPath);
                             },function(reason){
-                                console.log('error uploading: ' + obj.path);
+                                console.log('error uploading: ' + awsPath);
                                 console.log(reason);
                             });
                         });
