@@ -47,7 +47,8 @@ return function ConfigRunner(){
                         break;
                     case 'upload':
                         fileUtils.getContents(obj.path).then(function(contents){
-                            console.log('1 uploading: ' + obj.path);
+							
+                            console.log('uploading: ' + obj.path + ' to ' + obj.path.substring(5));
                             s3Wrapper.putObject(config.bucketName,obj.path,contents).then(function(){
                                 console.log('done uploading: ' + obj.path);
                             },function(reason){
